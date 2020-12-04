@@ -7,7 +7,12 @@ Also contains the MetadataYAMLDumper class to generate the metadata for zipfiles
 '''
 import cgi
 import os
-import StringIO
+#import StringIO
+try:
+    from StringIO import StringIO ## for Python 2
+except ImportError:
+    from io import StringIO ## for Python 3
+import io
 import zipfile
 import mimetypes
 import collections
